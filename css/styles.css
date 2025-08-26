@@ -1,0 +1,610 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Container */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Section */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    font-weight: 700;
+}
+
+.header p {
+    opacity: 0.9;
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+/* Install Prompt */
+.install-prompt {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.install-prompt.show {
+    display: flex;
+}
+
+.install-prompt span {
+    font-weight: 500;
+    color: #4F46E5;
+}
+
+.install-btn {
+    background: #10b981;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.install-btn:hover {
+    background: #059669;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #6b7280;
+    margin-left: 10px;
+    padding: 4px;
+    transition: color 0.2s ease;
+}
+
+.close-btn:hover {
+    color: #374151;
+}
+
+/* Statistics Section */
+.stats {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px 25px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stat {
+    text-align: center;
+    flex: 1;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #4F46E5;
+    display: block;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: #6b7280;
+    font-weight: 500;
+    margin-top: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Todo Form */
+.todo-form {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-group:last-of-type {
+    margin-bottom: 30px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #4F46E5;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 15px 18px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: #fafafa;
+    color: #333;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #4F46E5;
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+    background: white;
+    transform: translateY(-1px);
+}
+
+.form-group input::placeholder {
+    color: #9ca3af;
+}
+
+/* Buttons */
+.btn {
+    background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-small {
+    padding: 8px 14px;
+    font-size: 12px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn-delete {
+    background: #ef4444;
+    color: white;
+}
+
+.btn-delete:hover {
+    background: #dc2626;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+/* Todos Container */
+.todos-container {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.todos-header {
+    background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+    color: white;
+    padding: 25px 30px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    position: relative;
+}
+
+.todos-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+}
+
+.todos-list {
+    padding: 0;
+}
+
+/* Todo Items */
+.todo-item {
+    display: flex;
+    align-items: center;
+    padding: 20px 30px;
+    border-bottom: 1px solid #f3f4f6;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.todo-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(135deg, #4F46E5, #7C3AED);
+    transition: width 0.3s ease;
+}
+
+.todo-item:hover {
+    background-color: #f8fafc;
+    transform: translateX(5px);
+}
+
+.todo-item:hover::before {
+    width: 4px;
+}
+
+.todo-item:last-child {
+    border-bottom: none;
+}
+
+.todo-checkbox {
+    margin-right: 20px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #4F46E5;
+    transform: scale(1.2);
+}
+
+.todo-content {
+    flex: 1;
+    margin-right: 15px;
+}
+
+.todo-title {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #1f2937;
+    transition: all 0.3s ease;
+}
+
+.todo-title.completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+    color: #6b7280;
+}
+
+.todo-date {
+    font-size: 13px;
+    color: #6b7280;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.todo-date::before {
+    content: '📅';
+    margin-right: 6px;
+}
+
+.todo-date.overdue {
+    color: #ef4444;
+    font-weight: 600;
+}
+
+.todo-date.overdue::before {
+    content: '⚠️';
+}
+
+.todo-actions {
+    display: flex;
+    gap: 8px;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 60px 30px;
+    color: #6b7280;
+}
+
+.empty-state svg {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    opacity: 0.4;
+    color: #4F46E5;
+}
+
+.empty-state h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #374151;
+}
+
+.empty-state p {
+    font-size: 0.95rem;
+    color: #6b7280;
+}
+
+/* Animations */
+@keyframes slideInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.todo-item {
+    animation: slideInFromTop 0.3s ease-out;
+}
+
+.stats {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.todo-form {
+    animation: slideInFromTop 0.4s ease-out;
+}
+
+.todos-container {
+    animation: slideInFromTop 0.5s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .header p {
+        font-size: 1rem;
+    }
+    
+    .todo-form {
+        padding: 25px 20px;
+    }
+    
+    .stats {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+    
+    .stat {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0 20px;
+    }
+    
+    .stat-number {
+        font-size: 1.8rem;
+    }
+    
+    .todos-header {
+        padding: 20px;
+        font-size: 1.1rem;
+    }
+    
+    .todo-item {
+        padding: 15px 20px;
+    }
+    
+    .todo-item:hover {
+        transform: none;
+    }
+    
+    .install-prompt {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .todo-form {
+        padding: 20px 15px;
+    }
+    
+    .form-group input {
+        padding: 12px 15px;
+    }
+    
+    .btn {
+        padding: 12px 24px;
+    }
+    
+    .todo-item {
+        padding: 15px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .todo-content {
+        margin-right: 0;
+        width: 100%;
+    }
+    
+    .todo-actions {
+        margin-top: 10px;
+    }
+}
+
+/* Dark mode support (system preference) */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    }
+    
+    .todo-form,
+    .todos-container {
+        background: #1f2937;
+        border-color: #374151;
+    }
+    
+    .form-group label {
+        color: #a5b4fc;
+    }
+    
+    .form-group input {
+        background: #374151;
+        border-color: #4b5563;
+        color: #f9fafb;
+    }
+    
+    .form-group input:focus {
+        background: #4b5563;
+        border-color: #6366f1;
+    }
+    
+    .todo-title {
+        color: #f9fafb;
+    }
+    
+    .todo-item:hover {
+        background-color: #374151;
+    }
+    
+    .empty-state h3 {
+        color: #f9fafb;
+    }
+    
+    .stats {
+        background: rgba(31, 41, 55, 0.9);
+    }
+    
+    .install-prompt {
+        background: rgba(31, 41, 55, 0.95);
+    }
+    
+    .install-prompt span {
+        color: #a5b4fc;
+    }
+}
+
+/* Print styles */
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+    
+    .install-prompt,
+    .stats,
+    .todo-form,
+    .btn,
+    .todo-actions {
+        display: none;
+    }
+    
+    .todos-container {
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+    
+    .todos-header {
+        background: #f5f5f5;
+        color: black;
+    }
+    
+    .todo-item {
+        border-bottom: 1px solid #eee;
+    }
+}
